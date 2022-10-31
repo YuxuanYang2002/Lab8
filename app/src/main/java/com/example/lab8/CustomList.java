@@ -53,8 +53,8 @@ public class CustomList extends ArrayAdapter<City> {
         cities.add(city);
     }
 
-    Boolean hasCity() {
-
+    Boolean hasCity(City city) {
+        return (cities.contains(city));
     }
 
 }

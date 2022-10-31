@@ -25,10 +25,17 @@ public class CustomListTest {
     }
 
     @Test
-    public void hadCityTest() {
-        assertFalse(list.hasCity());
-        list.addCity(new City("Estevan", "SK"));
-        assertTrue(list.hasCity());
+    public void hasCityTest() {
+        list = new CustomList(null, new ArrayList<City>());
+        City city = new City("Estevan", "SK");
+        assertFalse(list.hasCity(city));
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
+    }
+
+    @Test
+    public void deleteCityTest() {
+        list = new CustomList(null, new ArrayList<City>());
     }
 
 }
