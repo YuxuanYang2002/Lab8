@@ -3,9 +3,11 @@ package com.example.lab8;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -36,6 +38,12 @@ public class CustomListTest {
     @Test
     public void deleteCityTest() {
         list = new CustomList(null, new ArrayList<City>());
+        City city = new City("Regina", "Saskatchewan");
+        list.addCity(city);
+        list.deleteCity(city);
+        Assertions.assertFalse(list.hasCity(city));
+        assertThrows( IllegalArgumentException.class, () -> {
+            list.deleteCity(city); });
     }
 
 }
